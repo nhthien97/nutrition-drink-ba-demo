@@ -145,4 +145,19 @@
     margin-left:auto;
 }
 
+.user-site-btn{
+    background:#16a34a;
+    color:#fff;
+    text-decoration:none;
+    padding:11px 18px;
+    border-radius:10px;
+    font-weight:600;
+    transition:.25s;
+}
+
+.user-site-btn:hover{
+    background:#15803d;
+    transform:translateY(-2px);
+}
+
 }

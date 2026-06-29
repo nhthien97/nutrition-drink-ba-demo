@@ -1,4 +1,5 @@
 import "./Header.css";
+import { Link } from "react-router-dom";
 
 export default function Header() {
   const now = new Date();
@@ -20,6 +21,13 @@ export default function Header() {
 
       <div className="header-right">
 
+        <Link
+          to="/user"
+          className="user-site-btn"
+        >
+          🌐 User Website
+        </Link>
+
         <div className="header-search">
           <input
             type="text"
@@ -38,11 +46,8 @@ export default function Header() {
           </div>
 
           <div>
-
             <strong>Nguyễn Hoàng Thiên</strong>
-
             <small>Business Manager</small>
-
           </div>
 
         </div>

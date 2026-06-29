@@ -10,38 +10,98 @@ import Customers from "../pages/Customers/Customers";
 import Recommendation from "../pages/Recommendation/Recommendation";
 import Reports from "../pages/Reports/Reports";
 
-function AppRouter(){
+import Home from "../pages/User/Home/Home";
+import UserProducts from "../pages/User/Products/Products";
+import ProductDetail from "../pages/User/ProductDetail/ProductDetail";
 
-return(
+function AppRouter() {
+  return (
+    <BrowserRouter>
 
-<BrowserRouter>
+      <Routes>
 
-<Routes>
+        {/* ================= USER ================= */}
 
-<Route path="/" element={<MainLayout/>}>
+        <Route
+          path="/user"
+          element={<Home />}
+        />
 
-<Route index element={<Dashboard/>}/>
+        <Route
+          path="/user/products"
+          element={<UserProducts />}
+        />
 
-<Route path="products" element={<Products/>}/>
+        <Route
+          path="/user/product/:id"
+          element={<ProductDetail />}
+        />
 
-<Route path="ingredients" element={<Ingredients/>}/>
+        {/* Các route này sẽ tạo ở bước sau */}
 
-<Route path="orders" element={<Orders/>}/>
+        <Route
+          path="/user/cart"
+          element={<div>Cart Coming Soon</div>}
+        />
 
-<Route path="customers" element={<Customers/>}/>
+        <Route
+          path="/user/checkout"
+          element={<div>Checkout Coming Soon</div>}
+        />
 
-<Route path="recommendation" element={<Recommendation/>}/>
+        <Route
+          path="/user/tracking"
+          element={<div>Tracking Coming Soon</div>}
+        />
 
-<Route path="reports" element={<Reports />} />
+        {/* ================= ADMIN ================= */}
 
-</Route>
+        <Route
+          path="/"
+          element={<MainLayout />}
+        >
 
-</Routes>
+          <Route
+            index
+            element={<Dashboard />}
+          />
 
-</BrowserRouter>
+          <Route
+            path="products"
+            element={<Products />}
+          />
 
-);
+          <Route
+            path="ingredients"
+            element={<Ingredients />}
+          />
 
+          <Route
+            path="orders"
+            element={<Orders />}
+          />
+
+          <Route
+            path="customers"
+            element={<Customers />}
+          />
+
+          <Route
+            path="recommendation"
+            element={<Recommendation />}
+          />
+
+          <Route
+            path="reports"
+            element={<Reports />}
+          />
+
+        </Route>
+
+      </Routes>
+
+    </BrowserRouter>
+  );
 }
 
 export default AppRouter;

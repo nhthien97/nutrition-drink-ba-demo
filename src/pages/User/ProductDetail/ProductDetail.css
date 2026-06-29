@@ -1,0 +1,832 @@
+/* =========================================================
+   Product Detail
+   Nutrition Drink BA Demo
+   Style: Apple Store + Starbucks
+========================================================= */
+
+* {
+  box-sizing: border-box;
+}
+
+.product-detail-page {
+  min-height: 100vh;
+  background: #f5f7f9;
+  color: #1d1d1f;
+}
+
+.container {
+  width: min(1200px, calc(100% - 48px));
+  margin: 0 auto;
+}
+
+/* ===========================
+   Header
+=========================== */
+
+.pd-header {
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  background: rgba(255, 255, 255, 0.9);
+  backdrop-filter: blur(12px);
+  border-bottom: 1px solid #ececec;
+}
+
+.pd-header .container {
+  height: 72px;
+  display: flex;
+  align-items: center;
+}
+
+.pd-header h1 {
+  margin: 0;
+  font-size: 28px;
+  font-weight: 700;
+  color: #006241;
+  letter-spacing: .5px;
+}
+
+/* ===========================
+   Breadcrumb
+=========================== */
+
+.breadcrumb {
+  display: flex;
+  gap: 10px;
+  align-items: center;
+  flex-wrap: wrap;
+  margin: 32px 0;
+  font-size: 14px;
+  color: #777;
+}
+
+.breadcrumb strong {
+  color: #111;
+  font-weight: 600;
+}
+
+/* ===========================
+   Product Hero
+=========================== */
+
+.product-hero {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 48px;
+  align-items: center;
+  background: #ffffff;
+  border-radius: 28px;
+  padding: 48px;
+  margin-bottom: 48px;
+  box-shadow: 0 16px 40px rgba(0, 0, 0, 0.06);
+}
+
+.hero-image {
+  position: relative;
+  background: linear-gradient(135deg, #f4fff7, #eefaf2);
+  border-radius: 24px;
+  padding: 40px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 500px;
+}
+
+.hero-image img {
+  width: 100%;
+  max-width: 360px;
+  object-fit: contain;
+  transition: transform .35s ease;
+}
+
+.hero-image:hover img {
+  transform: scale(1.05);
+}
+
+.product-badge {
+  position: absolute;
+  top: 24px;
+  left: 24px;
+  background: #006241;
+  color: #fff;
+  padding: 8px 16px;
+  border-radius: 999px;
+  font-size: 13px;
+  font-weight: 600;
+  letter-spacing: .5px;
+}
+
+.hero-content {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.product-category {
+  margin: 0;
+  color: #006241;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  font-size: 13px;
+}
+
+.product-title {
+  margin: 16px 0;
+  font-size: 46px;
+  line-height: 1.2;
+  font-weight: 700;
+  color: #1d1d1f;
+}
+
+.product-rating {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  color: #ffb400;
+  font-size: 20px;
+  margin-bottom: 20px;
+}
+
+.product-rating span {
+  color: #666;
+  font-size: 15px;
+}
+
+.product-price {
+  font-size: 42px;
+  font-weight: 700;
+  color: #006241;
+  margin-bottom: 28px;
+}
+
+.product-features {
+  list-style: none;
+  padding: 0;
+  margin: 0 0 36px;
+}
+
+.product-features li {
+  padding: 10px 0;
+  color: #444;
+  font-size: 16px;
+  border-bottom: 1px solid #f1f1f1;
+}
+
+.hero-actions {
+  display: flex;
+  gap: 16px;
+  flex-wrap: wrap;
+}
+
+.btn-cart,
+.btn-buy {
+  border: none;
+  cursor: pointer;
+  border-radius: 14px;
+  padding: 16px 30px;
+  font-size: 16px;
+  font-weight: 600;
+  transition: all .25s ease;
+}
+
+.btn-cart {
+  background: #006241;
+  color: #fff;
+}
+
+.btn-cart:hover {
+  background: #004f34;
+  transform: translateY(-2px);
+}
+
+.btn-buy {
+  background: #f3f4f6;
+  color: #1d1d1f;
+}
+
+.btn-buy:hover {
+  background: #e5e7eb;
+  transform: translateY(-2px);
+}
+
+/* ===========================
+   Common Section
+=========================== */
+
+.detail-section {
+  margin-bottom: 56px;
+}
+
+.section-header {
+  margin-bottom: 28px;
+}
+
+.section-tag {
+  display: inline-block;
+  padding: 8px 16px;
+  border-radius: 999px;
+  background: #e8f5ee;
+  color: #006241;
+  font-size: 13px;
+  font-weight: 700;
+  letter-spacing: .6px;
+  text-transform: uppercase;
+}
+
+.section-header h2 {
+  margin: 18px 0 12px;
+  font-size: 34px;
+  font-weight: 700;
+  color: #1d1d1f;
+}
+
+.section-header p {
+  max-width: 720px;
+  color: #666;
+  font-size: 16px;
+  line-height: 1.8;
+}
+
+/* ===========================
+   Ingredient Section
+=========================== */
+
+.ingredient-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
+  gap: 24px;
+}
+
+.ingredient-card {
+  background: #ffffff;
+  border-radius: 22px;
+  padding: 28px;
+  box-shadow: 0 10px 28px rgba(0, 0, 0, .05);
+  transition: all .3s ease;
+}
+
+.ingredient-card:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 18px 36px rgba(0, 0, 0, .10);
+}
+
+.ingredient-icon {
+  width: 62px;
+  height: 62px;
+  border-radius: 18px;
+  background: #e8f5ee;
+  color: #006241;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 28px;
+  margin-bottom: 18px;
+}
+
+.ingredient-card h4 {
+  margin: 0 0 14px;
+  font-size: 20px;
+  color: #1d1d1f;
+}
+
+.ingredient-card p {
+  margin: 0;
+  color: #666;
+  line-height: 1.7;
+  font-size: 15px;
+}
+
+/* ===========================
+   Description Section
+=========================== */
+
+.description-card {
+  background: #ffffff;
+  border-radius: 24px;
+  padding: 36px;
+  box-shadow: 0 12px 30px rgba(0, 0, 0, .05);
+}
+
+.description-card > p {
+  margin: 0;
+  color: #555;
+  font-size: 16px;
+  line-height: 1.9;
+}
+
+.description-highlight {
+  margin-top: 36px;
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 20px;
+}
+
+.highlight-item {
+  background: #f8faf9;
+  border: 1px solid #edf1ee;
+  border-radius: 18px;
+  padding: 24px;
+  transition: all .3s ease;
+}
+
+.highlight-item:hover {
+  transform: translateY(-4px);
+  border-color: #006241;
+  box-shadow: 0 10px 24px rgba(0, 98, 65, .08);
+}
+
+.highlight-title {
+  display: block;
+  color: #888;
+  font-size: 13px;
+  text-transform: uppercase;
+  letter-spacing: .8px;
+  margin-bottom: 10px;
+}
+
+.highlight-value {
+  display: block;
+  color: #1d1d1f;
+  font-size: 22px;
+  font-weight: 700;
+}
+
+/* ===========================
+   Description Divider
+=========================== */
+
+.description-card::after {
+  content: "";
+  display: block;
+  width: 80px;
+  height: 4px;
+  margin-top: 28px;
+  border-radius: 999px;
+  background: #006241;
+} 
+
+/* ===========================
+   Nutrition Section
+=========================== */
+
+.nutrition-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 24px;
+}
+
+.nutrition-card {
+  background: #ffffff;
+  border-radius: 22px;
+  padding: 32px 24px;
+  text-align: center;
+  border: 1px solid #edf1ee;
+  box-shadow: 0 10px 24px rgba(0, 0, 0, .05);
+  transition: all .3s ease;
+}
+
+.nutrition-card:hover {
+  transform: translateY(-6px);
+  border-color: #006241;
+  box-shadow: 0 18px 36px rgba(0, 98, 65, .10);
+}
+
+.nutrition-card h3 {
+  margin: 0;
+  font-size: 32px;
+  font-weight: 700;
+  color: #006241;
+}
+
+.nutrition-card p {
+  margin: 12px 0 0;
+  color: #666;
+  font-size: 15px;
+  letter-spacing: .3px;
+}
+
+/* ===========================
+   Small Accent
+=========================== */
+
+.nutrition-card::before {
+  content: "";
+  display: block;
+  width: 42px;
+  height: 4px;
+  margin: 0 auto 18px;
+  border-radius: 999px;
+  background: #006241;
+}
+
+/* ===========================
+   Related Products
+=========================== */
+
+.related-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 28px;
+}
+
+.related-card {
+  background: #ffffff;
+  border-radius: 24px;
+  overflow: hidden;
+  border: 1px solid #edf1ee;
+  box-shadow: 0 10px 28px rgba(0, 0, 0, .05);
+  transition: all .3s ease;
+}
+
+.related-card:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 20px 40px rgba(0, 0, 0, .10);
+}
+
+.related-image {
+  height: 240px;
+  background: linear-gradient(135deg, #f7fff9, #eefaf2);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 24px;
+}
+
+.related-image img {
+  width: 100%;
+  max-width: 180px;
+  max-height: 180px;
+  object-fit: contain;
+  transition: transform .35s ease;
+}
+
+.related-card:hover .related-image img {
+  transform: scale(1.08);
+}
+
+.related-body {
+  padding: 24px;
+}
+
+.related-body h3 {
+  margin: 0 0 12px;
+  font-size: 20px;
+  color: #1d1d1f;
+  line-height: 1.4;
+  min-height: 56px;
+}
+
+.related-price {
+  margin: 0 0 20px;
+  font-size: 24px;
+  font-weight: 700;
+  color: #006241;
+}
+
+.related-button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  height: 48px;
+  text-decoration: none;
+  border-radius: 14px;
+  background: #006241;
+  color: #ffffff;
+  font-weight: 600;
+  transition: all .25s ease;
+}
+
+.related-button:hover {
+  background: #004f34;
+  transform: translateY(-2px);
+}
+
+/* ===========================
+   Footer
+=========================== */
+
+.pd-footer {
+  margin-top: 80px;
+  background: #0f172a;
+  color: #ffffff;
+}
+
+.footer-content {
+  display: grid;
+  grid-template-columns: 2fr 1fr 1fr 1fr;
+  gap: 40px;
+  padding: 64px 0;
+}
+
+.footer-brand h2 {
+  margin: 0 0 16px;
+  font-size: 32px;
+  color: #4ade80;
+}
+
+.footer-brand p {
+  margin: 0 0 16px;
+  font-size: 18px;
+  font-weight: 600;
+}
+
+.footer-brand span {
+  display: block;
+  line-height: 1.8;
+  color: #cbd5e1;
+}
+
+.footer-column h4 {
+  margin: 0 0 20px;
+  font-size: 18px;
+  color: #ffffff;
+}
+
+.footer-column ul {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.footer-column li {
+  margin-bottom: 12px;
+  color: #cbd5e1;
+  transition: color .25s;
+  cursor: pointer;
+}
+
+.footer-column li:hover {
+  color: #4ade80;
+}
+
+.footer-column p {
+  margin: 0 0 12px;
+  color: #cbd5e1;
+}
+
+.footer-bottom {
+  border-top: 1px solid rgba(255,255,255,.08);
+}
+
+.footer-bottom .container {
+  padding: 24px 0;
+  text-align: center;
+  color: #94a3b8;
+  font-size: 14px;
+}
+
+/* ===========================
+   Responsive
+=========================== */
+
+@media (max-width: 1100px) {
+
+  .product-hero {
+    grid-template-columns: 1fr;
+    padding: 36px;
+  }
+
+  .hero-image {
+    min-height: 360px;
+  }
+
+  .related-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .nutrition-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .description-highlight {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .footer-content {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+}
+
+@media (max-width: 768px) {
+
+  .container {
+    width: calc(100% - 32px);
+  }
+
+  .product-hero {
+    padding: 24px;
+    gap: 32px;
+  }
+
+  .hero-image {
+    min-height: 300px;
+    padding: 24px;
+  }
+
+  .hero-image img {
+    max-width: 240px;
+  }
+
+  .product-title {
+    font-size: 34px;
+  }
+
+  .product-price {
+    font-size: 32px;
+  }
+
+  .hero-actions {
+    flex-direction: column;
+  }
+
+  .btn-cart,
+  .btn-buy {
+    width: 100%;
+  }
+
+  .ingredient-grid,
+  .nutrition-grid,
+  .related-grid,
+  .description-highlight,
+  .footer-content {
+    grid-template-columns: 1fr;
+  }
+
+  .section-header h2 {
+    font-size: 28px;
+  }
+
+}
+
+@media (max-width: 480px) {
+
+  .pd-header .container {
+    height: 60px;
+  }
+
+  .pd-header h1 {
+    font-size: 22px;
+  }
+
+  .breadcrumb {
+    font-size: 13px;
+    margin: 24px 0;
+  }
+
+  .product-title {
+    font-size: 28px;
+  }
+
+  .product-price {
+    font-size: 28px;
+  }
+
+  .ingredient-card,
+  .nutrition-card,
+  .description-card,
+  .related-body {
+    padding: 20px;
+  }
+
+}
+
+/* ===========================
+   Header Navigation
+=========================== */
+
+.header-container {
+  height: 72px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.logo {
+  text-decoration: none;
+  font-size: 42px;
+  font-weight: 700;
+  color: #006241;
+  transition: .25s;
+}
+
+.logo:hover {
+  color: #00875a;
+}
+
+.main-nav {
+  display: flex;
+  align-items: center;
+  gap: 28px;
+}
+
+.main-nav a {
+  text-decoration: none;
+  color: #444;
+  font-size: 16px;
+  font-weight: 500;
+  transition: .25s;
+  position: relative;
+}
+
+.main-nav a:hover {
+  color: #006241;
+}
+
+.main-nav a::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: -8px;
+  width: 0;
+  height: 2px;
+  background: #006241;
+  transition: .25s;
+}
+
+.main-nav a:hover::after {
+  width: 100%;
+}
+
+.cart-link {
+  background: #006241;
+  color: #fff !important;
+  padding: 10px 18px;
+  border-radius: 999px;
+  font-weight: 600;
+}
+
+.cart-link::after {
+  display: none;
+}
+
+.cart-link:hover {
+  background: #004f34;
+  color: #fff !important;
+}
+
+/* ===========================
+   Breadcrumb Link
+=========================== */
+
+.breadcrumb a {
+  text-decoration: none;
+  color: #666;
+  transition: .25s;
+}
+
+.breadcrumb a:hover {
+  color: #006241;
+}
+
+/* ===========================
+   Tablet
+=========================== */
+
+@media (max-width: 992px) {
+
+  .header-container {
+    flex-direction: column;
+    justify-content: center;
+    gap: 12px;
+    height: auto;
+    padding: 16px 0;
+  }
+
+  .logo {
+    font-size: 32px;
+  }
+
+  .main-nav {
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 18px;
+  }
+
+}
+
+/* ===========================
+   Mobile
+=========================== */
+
+@media (max-width: 768px) {
+
+  .logo {
+    font-size: 26px;
+  }
+
+  .main-nav {
+    gap: 14px;
+  }
+
+  .main-nav a {
+    font-size: 14px;
+  }
+
+  .cart-link {
+    padding: 8px 14px;
+  }
+
+}
