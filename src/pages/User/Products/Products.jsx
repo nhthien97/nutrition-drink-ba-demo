@@ -3,7 +3,9 @@ import { Link } from "react-router-dom";
 import products from "../../../data/products";
 
 export default function Products() {
+
   return (
+
     <div className="user-products">
 
       <header className="user-header">
@@ -90,36 +92,70 @@ export default function Products() {
               key={item.id}
             >
 
-              <div className="product-image">
+              <span className="product-badge">
 
-                <img
-                  src={item.image}
-                  alt={item.name}
-                />
+                {
 
-              </div>
+                  item.sold >= 90
+                    ? "Best Seller"
+                    : item.category
 
-              <h3>
-                {item.name}
-              </h3>
+                }
+
+              </span>
+
+              <Link
+                to={`/user/product/${item.id}`}
+                className="image-link"
+              >
+
+                <div className="product-image">
+
+                  <img
+                    src={item.image}
+                    alt={item.name}
+                  />
+
+                </div>
+
+              </Link>
+
+              <Link
+                to={`/user/product/${item.id}`}
+                className="title-link"
+              >
+
+                <h3>
+                  {item.name}
+                </h3>
+
+              </Link>
 
               <p className="category">
+
                 {item.category}
+
               </p>
 
               <h2>
+
                 {item.price.toLocaleString("vi-VN")} đ
+
               </h2>
 
-              <span>
+              <span className="sold">
+
                 Đã bán {item.sold}
+
               </span>
 
               <Link
                 to={`/user/product/${item.id}`}
                 className="detail-btn"
               >
+
                 Xem chi tiết
+
               </Link>
 
             </div>
@@ -131,5 +167,7 @@ export default function Products() {
       </section>
 
     </div>
+
   );
+
 }
