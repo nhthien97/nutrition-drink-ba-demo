@@ -13,6 +13,8 @@ import Reports from "../pages/Reports/Reports";
 import Home from "../pages/User/Home/Home";
 import UserProducts from "../pages/User/Products/Products";
 import ProductDetail from "../pages/User/ProductDetail/ProductDetail";
+import Cart from "../pages/User/Cart/Cart";
+import Checkout from "../pages/User/Checkout/Checkout";
 
 function AppRouter() {
   return (
@@ -37,16 +39,14 @@ function AppRouter() {
           element={<ProductDetail />}
         />
 
-        {/* Các route này sẽ tạo ở bước sau */}
-
         <Route
           path="/user/cart"
-          element={<div>Cart Coming Soon</div>}
+          element={<Cart />}
         />
 
         <Route
           path="/user/checkout"
-          element={<div>Checkout Coming Soon</div>}
+          element={<Checkout />}
         />
 
         <Route

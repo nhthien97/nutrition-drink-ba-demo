@@ -1,7 +1,13 @@
 import "./ProductDetail.css";
+import { addToCart } from "../../../utils/cart";
 
 export default function ProductHero({ product }) {
   if (!product) return null;
+
+  const handleAddToCart = () => {
+    addToCart(product);
+    alert("Đã thêm sản phẩm vào giỏ hàng.");
+  };
 
   return (
     <section className="product-hero">
@@ -47,7 +53,10 @@ export default function ProductHero({ product }) {
 
         <div className="hero-actions">
 
-          <button className="btn-cart">
+          <button
+            className="btn-cart"
+            onClick={handleAddToCart}
+          >
             Thêm vào giỏ
           </button>
 
