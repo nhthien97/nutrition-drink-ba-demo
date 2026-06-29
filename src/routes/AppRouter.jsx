@@ -15,6 +15,7 @@ import UserProducts from "../pages/User/Products/Products";
 import ProductDetail from "../pages/User/ProductDetail/ProductDetail";
 import Cart from "../pages/User/Cart/Cart";
 import Checkout from "../pages/User/Checkout/Checkout";
+import Tracking from "../pages/User/Tracking/Tracking";
 
 function AppRouter() {
   return (
@@ -51,7 +52,7 @@ function AppRouter() {
 
         <Route
           path="/user/tracking"
-          element={<div>Tracking Coming Soon</div>}
+          element={<Tracking />}
         />
 
         {/* ================= ADMIN ================= */}

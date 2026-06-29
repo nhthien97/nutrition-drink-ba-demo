@@ -1,11 +1,67 @@
-import { Link } from "react-router-dom";
-import { getCart, getTotalPrice } from "../../../utils/cart";
+import { useState } from "react";
+import { Link, useNavigate } from "react-router-dom";
+
+import {
+  getCart,
+  getTotalPrice,
+  clearCart
+} from "../../../utils/cart";
+
+import { createOrder } from "../../../utils/orders";
 
 export default function Checkout() {
+
+  const navigate = useNavigate();
 
   const cart = getCart();
 
   const total = getTotalPrice();
+
+  const [fullName, setFullName] = useState("");
+  const [phone, setPhone] = useState("");
+  const [address, setAddress] = useState("");
+  const [note, setNote] = useState("");
+
+  const handleCheckout = () => {
+
+    if (cart.length === 0) {
+      alert("Giỏ hàng đang trống.");
+      return;
+    }
+
+    if (!fullName.trim()) {
+      alert("Vui lòng nhập họ và tên.");
+      return;
+    }
+
+    if (!/^[0-9]{10}$/.test(phone)) {
+      alert("Số điện thoại phải gồm 10 chữ số.");
+      return;
+    }
+
+    if (!address.trim()) {
+      alert("Vui lòng nhập địa chỉ.");
+      return;
+    }
+
+    const order = createOrder({
+      customer: {
+        fullName,
+        phone,
+        address,
+        note
+      },
+      items: cart,
+      totalPrice: total
+    });
+
+    clearCart();
+
+    alert("Đặt hàng thành công!");
+
+    navigate("/user/tracking?code=" + order.orderCode);
+
+  };
 
   return (
 
@@ -21,11 +77,20 @@ export default function Checkout() {
       <h1
         style={{
           color: "#006241",
-          marginBottom: "30px"
+          marginBottom: "8px"
         }}
       >
         Thanh toán
       </h1>
+
+      <p
+        style={{
+          color: "#666",
+          marginBottom: "30px"
+        }}
+      >
+        Vui lòng kiểm tra thông tin trước khi đặt hàng.
+      </p>
 
       <div
         style={{
@@ -40,6 +105,8 @@ export default function Checkout() {
           <h2>Thông tin khách hàng</h2>
 
           <input
+            value={fullName}
+            onChange={(e) => setFullName(e.target.value)}
             placeholder="Họ và tên"
             style={{
               width: "100%",
@@ -49,6 +116,8 @@ export default function Checkout() {
           />
 
           <input
+            value={phone}
+            onChange={(e) => setPhone(e.target.value)}
             placeholder="Số điện thoại"
             style={{
               width: "100%",
@@ -58,6 +127,8 @@ export default function Checkout() {
           />
 
           <input
+            value={address}
+            onChange={(e) => setAddress(e.target.value)}
             placeholder="Địa chỉ"
             style={{
               width: "100%",
@@ -67,6 +138,8 @@ export default function Checkout() {
           />
 
           <textarea
+            value={note}
+            onChange={(e) => setNote(e.target.value)}
             placeholder="Ghi chú"
             rows="4"
             style={{
@@ -90,6 +163,7 @@ export default function Checkout() {
                 style={{
                   display: "flex",
                   justifyContent: "space-between",
+                  alignItems: "center",
                   marginTop: "16px"
                 }}
               >
@@ -129,6 +203,7 @@ export default function Checkout() {
           </h2>
 
           <button
+            onClick={handleCheckout}
             style={{
               width: "100%",
               marginTop: "20px",
@@ -137,7 +212,9 @@ export default function Checkout() {
               color: "#fff",
               border: "none",
               borderRadius: "10px",
-              cursor: "pointer"
+              cursor: "pointer",
+              fontSize: "16px",
+              fontWeight: "600"
             }}
           >
             Đặt hàng
@@ -147,12 +224,13 @@ export default function Checkout() {
             to="/user/cart"
             style={{
               display: "block",
-              marginTop: "16px",
+              marginTop: "18px",
               textAlign: "center",
-              color: "#006241"
+              color: "#006241",
+              textDecoration: "none"
             }}
           >
-            Quay lại giỏ hàng
+            ← Quay lại giỏ hàng
           </Link>
 
         </div>
