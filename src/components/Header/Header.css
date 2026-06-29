@@ -1,0 +1,148 @@
+.header{
+    height:78px;
+    background:#ffffff;
+    border-bottom:1px solid #e5e7eb;
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+    padding:0 28px;
+    box-shadow:0 4px 20px rgba(15,23,42,.05);
+    position:sticky;
+    top:0;
+    z-index:100;
+}
+
+.header-left{
+    display:flex;
+    flex-direction:column;
+}
+
+.header-left h2{
+    margin:0;
+    font-size:24px;
+    font-weight:700;
+    color:#0f172a;
+    letter-spacing:-.3px;
+}
+
+.header-left p{
+    margin-top:6px;
+    font-size:13px;
+    color:#64748b;
+    text-transform:capitalize;
+}
+
+.header-right{
+    display:flex;
+    align-items:center;
+    gap:18px;
+}
+
+.header-search{
+    width:320px;
+}
+
+.header-search input{
+    width:100%;
+    height:44px;
+    border:none;
+    outline:none;
+    border-radius:12px;
+    background:#f1f5f9;
+    padding:0 16px;
+    font-size:14px;
+    transition:.25s;
+}
+
+.header-search input:focus{
+    background:#fff;
+    box-shadow:0 0 0 3px rgba(37,99,235,.15);
+}
+
+.header-btn{
+    width:46px;
+    height:46px;
+    border:none;
+    border-radius:12px;
+    background:#f8fafc;
+    cursor:pointer;
+    font-size:20px;
+    transition:.25s;
+}
+
+.header-btn:hover{
+    background:#2563eb;
+    color:#fff;
+    transform:translateY(-2px);
+}
+
+.header-user{
+    display:flex;
+    align-items:center;
+    gap:12px;
+    cursor:pointer;
+}
+
+.header-avatar{
+    width:48px;
+    height:48px;
+    border-radius:50%;
+    background:linear-gradient(135deg,#2563eb,#60a5fa);
+    color:#fff;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    font-size:18px;
+    font-weight:700;
+    flex-shrink:0;
+}
+
+.header-user strong{
+    display:block;
+    color:#0f172a;
+    font-size:15px;
+}
+
+.header-user small{
+    display:block;
+    margin-top:3px;
+    color:#64748b;
+    font-size:12px;
+}
+
+@media(max-width:992px){
+
+.header{
+    padding:0 18px;
+}
+
+.header-search{
+    width:220px;
+}
+
+}
+
+@media(max-width:768px){
+
+.header{
+    height:auto;
+    padding:16px;
+    flex-direction:column;
+    align-items:flex-start;
+    gap:16px;
+}
+
+.header-right{
+    width:100%;
+    flex-wrap:wrap;
+}
+
+.header-search{
+    width:100%;
+}
+
+.header-user{
+    margin-left:auto;
+}
+
+}

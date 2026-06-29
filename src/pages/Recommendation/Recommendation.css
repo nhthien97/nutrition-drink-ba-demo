@@ -1,0 +1,47 @@
+.page-header{
+display:flex;
+justify-content:space-between;
+align-items:center;
+margin-bottom:25px;
+}
+
+.recommend-box{
+background:white;
+padding:20px;
+border-radius:12px;
+margin-bottom:20px;
+box-shadow:0 2px 8px rgba(0,0,0,.08);
+}
+
+.recommend-box label{
+display:block;
+margin-bottom:10px;
+font-weight:bold;
+}
+
+.recommend-box select{
+padding:10px;
+width:260px;
+border:1px solid #ddd;
+border-radius:8px;
+}
+
+.product-table{
+width:100%;
+background:white;
+border-collapse:collapse;
+border-radius:12px;
+overflow:hidden;
+box-shadow:0 2px 8px rgba(0,0,0,.08);
+}
+
+.product-table th{
+background:#2E7D32;
+color:white;
+padding:14px;
+}
+
+.product-table td{
+padding:14px;
+border-bottom:1px solid #eee;
+}

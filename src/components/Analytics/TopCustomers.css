@@ -1,0 +1,134 @@
+.analytics-customer-card{
+    background:#fff;
+    border-radius:20px;
+    padding:24px;
+    box-shadow:0 10px 30px rgba(15,23,42,.08);
+}
+
+.analytics-customer-header{
+    display:flex;
+    justify-content:space-between;
+    align-items:flex-start;
+    margin-bottom:24px;
+}
+
+.analytics-customer-header h3{
+    margin:0;
+    color:#0f172a;
+    font-size:20px;
+    font-weight:700;
+}
+
+.analytics-customer-header p{
+    margin:6px 0 0;
+    color:#64748b;
+    font-size:13px;
+}
+
+.analytics-customer-header span{
+    padding:6px 14px;
+    border-radius:999px;
+    background:#ede9fe;
+    color:#7c3aed;
+    font-size:12px;
+    font-weight:700;
+}
+
+.analytics-customer-list{
+    display:flex;
+    flex-direction:column;
+    gap:18px;
+}
+
+.analytics-customer-item{
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    gap:16px;
+    padding-bottom:18px;
+    border-bottom:1px solid #eef2f7;
+}
+
+.analytics-customer-item:last-child{
+    border-bottom:none;
+    padding-bottom:0;
+}
+
+.analytics-customer-left{
+    display:flex;
+    align-items:center;
+    gap:14px;
+    flex:1;
+    min-width:0;
+}
+
+.analytics-avatar{
+    width:52px;
+    height:52px;
+    border-radius:50%;
+    background:linear-gradient(135deg,#2563eb,#60a5fa);
+    color:#fff;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    font-size:20px;
+    font-weight:700;
+    flex-shrink:0;
+}
+
+.analytics-customer-left strong{
+    display:block;
+    color:#0f172a;
+    font-size:15px;
+}
+
+.analytics-customer-left small{
+    display:block;
+    margin-top:4px;
+    color:#64748b;
+    font-size:12px;
+}
+
+.analytics-customer-right{
+    display:flex;
+    align-items:center;
+    gap:10px;
+}
+
+.analytics-vip{
+    padding:6px 12px;
+    border-radius:999px;
+    background:#fef3c7;
+    color:#b45309;
+    font-size:12px;
+    font-weight:700;
+}
+
+.analytics-customer-right strong{
+    color:#2563eb;
+    font-size:15px;
+}
+
+@media (max-width:768px){
+
+.analytics-customer-card{
+    padding:18px;
+}
+
+.analytics-customer-item{
+    flex-direction:column;
+    align-items:flex-start;
+}
+
+.analytics-customer-right{
+    width:100%;
+    justify-content:space-between;
+}
+
+.analytics-avatar{
+    width:46px;
+    height:46px;
+    font-size:18px;
+}
+
+}

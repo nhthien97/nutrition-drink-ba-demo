@@ -1,0 +1,133 @@
+.analytics-expiry-card{
+    background:#fff;
+    border-radius:20px;
+    padding:24px;
+    box-shadow:0 10px 30px rgba(15,23,42,.08);
+}
+
+.analytics-expiry-header{
+    display:flex;
+    justify-content:space-between;
+    align-items:flex-start;
+    margin-bottom:24px;
+}
+
+.analytics-expiry-header h3{
+    margin:0;
+    font-size:20px;
+    font-weight:700;
+    color:#0f172a;
+}
+
+.analytics-expiry-header p{
+    margin:6px 0 0;
+    color:#64748b;
+    font-size:13px;
+}
+
+.expiry-count{
+    min-width:42px;
+    height:42px;
+    border-radius:12px;
+    background:#fef3c7;
+    color:#b45309;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    font-size:15px;
+    font-weight:700;
+}
+
+.analytics-expiry-list{
+    display:flex;
+    flex-direction:column;
+    gap:16px;
+}
+
+.analytics-expiry-item{
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    gap:16px;
+    padding-bottom:16px;
+    border-bottom:1px solid #eef2f7;
+}
+
+.analytics-expiry-item:last-child{
+    border-bottom:none;
+    padding-bottom:0;
+}
+
+.analytics-expiry-left{
+    display:flex;
+    align-items:center;
+    gap:14px;
+    flex:1;
+    min-width:0;
+}
+
+.analytics-expiry-icon{
+    width:46px;
+    height:46px;
+    border-radius:14px;
+    background:#fef3c7;
+    color:#d97706;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    font-size:20px;
+    flex-shrink:0;
+}
+
+.analytics-expiry-left strong{
+    display:block;
+    color:#0f172a;
+    font-size:15px;
+}
+
+.analytics-expiry-left small{
+    display:block;
+    margin-top:4px;
+    color:#64748b;
+    font-size:12px;
+}
+
+.analytics-warning-badge{
+    padding:6px 12px;
+    border-radius:999px;
+    background:#fff7ed;
+    color:#d97706;
+    font-size:12px;
+    font-weight:700;
+    white-space:nowrap;
+}
+
+.analytics-expiry-empty{
+    padding:36px 12px;
+    text-align:center;
+    color:#94a3b8;
+    font-size:14px;
+}
+
+@media (max-width:768px){
+
+.analytics-expiry-card{
+    padding:18px;
+}
+
+.analytics-expiry-item{
+    flex-direction:column;
+    align-items:flex-start;
+}
+
+.analytics-warning-badge{
+    align-self:flex-start;
+}
+
+.analytics-expiry-icon{
+    width:40px;
+    height:40px;
+    font-size:18px;
+}
+
+}

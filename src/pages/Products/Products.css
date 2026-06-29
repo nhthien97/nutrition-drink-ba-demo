@@ -1,0 +1,89 @@
+.page-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 25px;
+}
+
+.page-header h2 {
+  color: #2E7D32;
+}
+
+.page-header button {
+  background: #2E7D32;
+  color: white;
+  border: none;
+  padding: 10px 18px;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: .2s;
+}
+
+.page-header button:hover {
+  background: #256428;
+}
+
+.product-table {
+  width: 100%;
+  background: white;
+  border-collapse: collapse;
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 2px 10px rgba(0,0,0,.08);
+}
+
+.product-table th {
+  background: #2E7D32;
+  color: white;
+  padding: 14px;
+  text-align: left;
+}
+
+.product-table td {
+  padding: 14px;
+  border-bottom: 1px solid #eee;
+}
+
+.product-table tr:hover {
+  background: #f9fafb;
+}
+
+.product-table button {
+  margin-right: 8px;
+  padding: 7px 12px;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+}
+
+.product-table button:nth-child(1) {
+  background: #2196F3;
+  color: white;
+}
+
+.product-table button:nth-child(2) {
+  background: #FFC107;
+}
+
+.product-table button:nth-child(3) {
+  background: #F44336;
+  color: white;
+}
+
+.detail-card {
+  margin-top: 30px;
+  background: white;
+  padding: 25px;
+  border-radius: 12px;
+  box-shadow: 0 2px 10px rgba(0,0,0,.08);
+}
+
+.detail-card h3 {
+  margin-bottom: 18px;
+  color: #2E7D32;
+}
+
+.detail-card p {
+  margin: 10px 0;
+  font-size: 15px;
+}
