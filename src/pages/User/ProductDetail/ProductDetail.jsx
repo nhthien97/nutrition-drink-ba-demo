@@ -10,63 +10,74 @@ import RelatedProducts from "./RelatedProducts";
 import Footer from "./Footer";
 
 export default function ProductDetail() {
+
   const { id } = useParams();
 
   const product =
-    products.find((item) => item.id === Number(id)) || products[0];
+    products.find(item => item.id === Number(id)) || products[0];
 
-  const relatedProducts = products
-    .filter((item) => item.id !== product.id)
-    .slice(0, 4);
+  const relatedProducts =
+    products
+      .filter(item => item.id !== product.id)
+      .slice(0, 4);
 
   return (
+
     <div className="product-detail-page">
 
       <header className="pd-header">
+
         <div className="container header-container">
 
-          <Link to="/" className="logo">
+          <Link
+            to="/user"
+            className="logo"
+          >
             Nutrition Drink
           </Link>
 
           <nav className="main-nav">
 
-            <Link to="/">
+            <Link to="/user">
               Trang chủ
             </Link>
 
-            <Link to="/products">
+            <Link to="/user/products">
               Sản phẩm
             </Link>
 
-            <Link to="/tracking">
+            <Link to="/user/tracking">
               Theo dõi đơn
             </Link>
 
-            <Link to="/admin">
+            <Link to="/">
               Admin
             </Link>
 
-            <Link to="/cart" className="cart-link">
+            <Link
+              to="/user/cart"
+              className="cart-link"
+            >
               🛒 Giỏ hàng
             </Link>
 
           </nav>
 
         </div>
+
       </header>
 
       <div className="container">
 
         <nav className="breadcrumb">
 
-          <Link to="/">
+          <Link to="/user">
             Trang chủ
           </Link>
 
           <span>/</span>
 
-          <Link to="/products">
+          <Link to="/user/products">
             Sản phẩm
           </Link>
 
@@ -93,5 +104,7 @@ export default function ProductDetail() {
       <Footer />
 
     </div>
+
   );
+
 }

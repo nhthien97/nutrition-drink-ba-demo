@@ -4,10 +4,16 @@
 }
 
 .products-banner{
-    background:linear-gradient(135deg,#16a34a,#22c55e);
+    background:linear-gradient(
+        135deg,
+        #006241 0%,
+        #007a52 100%
+    );
     color:#fff;
     text-align:center;
-    padding:70px 20px;
+    padding:80px 20px;
+    border-radius:0 0 28px 28px;
+    box-shadow:0 10px 30px rgba(0,98,65,.15);
 }
 
 .products-banner h1{
